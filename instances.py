@@ -1,17 +1,30 @@
 import praw
 import pdb
 import re
+import json
+import config
+import os
 
+reddit = praw.Reddit('prbot')
 
-alreadyreplied=[] 		#Contains the submission ID of the submissions to which the bot has already replied to
+def replying_jokes(posts):
+	if not os.path.isfile(config.FILENAME):
+		alreadyreplied = []
+	else:
+		with open(config.FILENAME,"r") as fi:
+			alreadyreplied = fi.read()
+			alreadyreplied = alreadyreplied.split("\n")
+			alreadyreplied = list(filter(None, alreadyreplied))
 
-def get_jokes(subreddit1,subreddit):
-	for submission in subreddit.hot(limit=10):
-		if submission.id not in alreadyreplied:
-			if re.search("Joke please", submission.title,re.IGNORECASE):
+	subreddit1 = reddit.subreddit('Jokes')
+	for i in posts:
+		if i.id not in alreadyreplied:
+			if re.search("Joke please", i.title,re.IGNORECASE):
 				for submission1 in subreddit1.hot(limit=1):
-					#payload = {submission1.title,submission1.selftext.lower()}
 					sub1 = submission1.title
 					sub2 = submission1.selftext
-					submission.reply("Maverick is here with a joke: "+ sub1 + " " + sub2)
-		alreadyreplied.append(submission.id)
+					i.reply("Maverick is here with a joke: "+ sub1 + " " + sub2)
+			alreadyreplied.append(i.id)
+	with open(config.FILENAME,"w") as fo:
+		for posts in alreadyreplied:
+			fo.write(posts + "\n")
