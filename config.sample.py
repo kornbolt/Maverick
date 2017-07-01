@@ -3,10 +3,7 @@ CLIENT_ID = 'jdtjg'
 CLIENT_SECRET  = 'teeshyr'
 AUTH_URL = 'http://qqq'
 FILENAME = "filename.txt"
-Username = 'user'
-password = 'pass'
-
-'''You need to configure the 'praw.ini' file which is located in /home/user/.local/lib/python3.5/site-packages/praw/praw.ini ,
-(according to the OS directories)
-At the end of the file, append all the configurations you have got above.'''
+USERNAME = 'user'
+PASSWORD = 'pass'
+USERAGENT = 'maverick/0.1 by tworandomboredpeople'
 
