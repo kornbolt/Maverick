@@ -9,7 +9,7 @@ def init_reddit_connection():
             client_id=config.CLIENT_ID,
             client_secret=config.CLIENT_SECRET,
             refresh_token=config.ACCESS_TOKEN,
-            user_agent='maverick/0.01 by twoweirdpeople',
+            user_agent=config.USER_AGENT,
             username=config.USERNAME,
             password=config.PASSWORD
         )
