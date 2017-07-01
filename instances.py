@@ -5,9 +5,7 @@ import json
 import config
 import os
 
-reddit = praw.Reddit('prbot')
-
-def replying_jokes(posts):
+def replying_jokes(posts, reddit):
 	if not os.path.isfile(config.FILENAME):
 		alreadyreplied = []
 	else:
