@@ -1,11 +1,11 @@
 import config
 import praw
 import time
-from instances import replying_jokes,news
+from instances import replying_jokes,news,tictactoe
 from reddit_connection import init_reddit_connection
 import reddit_connection
 
-functions = [replying_jokes,news]
+functions = [replying_jokes,news,tictactoe]
 
 if __name__ == '__main__':
     init_reddit_connection()
