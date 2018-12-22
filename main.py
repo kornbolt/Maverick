@@ -12,7 +12,7 @@ if __name__ == '__main__':
     reddit = reddit_connection.reddit
     # now get some posts and try to reply as well as possible
     while True:
-        subreddit = reddit.subreddit('iliekcomputers')
+        subreddit = reddit.subreddit('ilikecomputers')
         posts = []
         for submission in subreddit.hot(limit=10):
                 posts.append(submission)
